@@ -1,105 +1,106 @@
 # Know Your Fan 🧠 - FURIA Edition
 
-**Aplicativo Stand-alone em Streamlit para cadastro e validação de fãs de e-sports**
+**Stand-alone Streamlit application for e-sports fan registration and validation**
 
 ---
 
-## 📝 Descrição
-Este projeto é um aplicativo web stand-alone construído com **Streamlit** e **SQLite** para:
+## 📝 Description
+This project is a stand-alone web application built with **Streamlit** and **SQLite** to:
 
-- Coletar informações de fãs de e-sports (nome, CPF, endereço, interesses, atividades, compras, links sociais e perfis de e-sports).
-- Validar documentos (RG/CNH) por OCR usando **pytesseract**.
-- Listar os fãs cadastrados em um painel acessível somente com senha de administrador.
+- Collect data from e-sports fans (name, CPF, address, interests, activities, purchases, social links, and e-sports profiles).
+- Validate documents (RG/CNH) via OCR using **pytesseract**.
+- List registered fans in a panel accessible only with an admin password.
 
-A aplicação não requer um backend separado (FastAPI); toda a lógica de persistência e validação está embutida no script **`main.py`**.
-
----
-
-## ⚙️ Funcionalidades Principais
-
-1. **Formulário de Cadastro**  
-   - Validação de campos obrigatórios (nome e CPF).  
-   - Validação de formato de CPF (algoritmo de dígitos).  
-   - Armazenamento em banco de dados SQLite local (`fans.db`).
-
-2. **Validação de Documento**  
-   - Upload de imagem de RG/CNH (JPG, PNG, JPEG).  
-   - Pré-processamento de imagem (grayscale + inversão).  
-   - Extração de texto via OCR com `pytesseract`.  
-   - Verificação de presença do nome cadastrado no documento.
-
-3. **Painel de Fãs Cadastrados**  
-   - Acesso restrito por senha de administrador.  
-   - Exibição de todos os registros com detalhes em accordions.
+The application does not require a separate backend (like FastAPI); all persistence and validation logic is embedded in the **`main.py`** script.
 
 ---
 
-## 🛠️ Requisitos
+## ⚙️ Key Features
 
-- Python 3.7 ou superior  
-- Bibliotecas Python (ver **`requirements.txt`**):
+1. **Registration Form**  
+   - Validation of required fields (name and CPF).  
+   - CPF format validation (digit check algorithm).  
+   - Local SQLite database storage (`fans.db`).
+
+2. **Document Validation**  
+   - Upload of RG/CNH image (JPG, PNG, JPEG).  
+   - Image preprocessing (grayscale + inversion).  
+   - Text extraction via OCR with `pytesseract`.  
+   - Check if the registered name is present in the document.
+
+3. **Registered Fans Panel**  
+   - Access restricted by admin password.  
+   - Display of all records with details using accordions.
+
+---
+
+## 🛠️ Requirements
+
+- Python 3.7 or higher  
+- Python libraries (see **`requirements.txt`**):
   ```bash
   streamlit
   pytesseract
   pillow
-  sqlite3 (incluso na biblioteca padrão)
+  sqlite3 (included in Python standard library)
   ```
-- **Tesseract OCR** instalado no sistema operacional:
-  - **Windows**: Instalar via instalador oficial e configurar PATH.  
+- **Tesseract OCR** installed on the system:
+  - **Windows**: Install via official installer and configure PATH  
   - **macOS**: `brew install tesseract`  
   - **Linux (Ubuntu/Debian)**: `sudo apt install tesseract-ocr`
 
 ---
 
-## 🚀 Instalação e Execução Local
+## 🚀 Local Installation and Execution
 
-1. Clone este repositório:
+1. Clone this repository:
    ```bash
-   git clone https://github.com/seu-usuario/know-your-fan.git
+   git clone https://github.com/your-username/know-your-fan.git
    cd know-your-fan
    ```
 
-2. (Opcional) Crie e ative um ambiente virtual:
+2. (Optional) Create and activate a virtual environment:
    ```bash
    python -m venv venv
    source venv/bin/activate   # macOS/Linux
-   venv\Scripts\Activate    # Windows
+   venv\Scripts\Activate      # Windows
    ```
 
-3. Instale as dependências:
+3. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Execute o aplicativo:
+4. Run the application:
    ```bash
    streamlit run main.py
    ```
 
-5. Abra no navegador: [http://localhost:8501](http://localhost:8501)
+5. Open in your browser: [http://localhost:8501](http://localhost:8501)
 
 ---
 
-## 🔐 Acesso de Administrador
+## 🔐 Admin Access
 
-Para visualizar a aba **"Fãs Cadastrados"**, digite a senha de administrador no campo lateral:
+To view the **"Registered Fans"** tab, enter the admin password in the sidebar:
 
 ```
-🔒 Acesso Admin: minhasenhafuria
+🔒 Admin Access: minhasenhafuria
 ```
 
-Substitua `minhasenhafuria` por uma senha mais segura em produção.
+Replace `minhasenhafuria` with a more secure password in production.
 
 ---
 
-## ☁️ Deploy no Streamlit Community Cloud
+## ☁️ Deploying to Streamlit Community Cloud
 
-1. Faça push do projeto para um repositório no GitHub.  
-2. Acesse [share.streamlit.io](https://share.streamlit.io) e conecte seu repositório.  
-3. Aponte para o arquivo `main.py` e clique em **Deploy**.  
-4. Compartilhe o link gerado (`https://share.streamlit.io/...`) com seus usuários.
+1. Push the project to a GitHub repository.  
+2. Go to [share.streamlit.io](https://share.streamlit.io) and connect your repo.  
+3. Point to the `main.py` file and click **Deploy**.  
+4. Share the generated link (`https://share.streamlit.io/...`) with your users.
 
 ---
+
 
 ## 📄 Licença
 Concedido sob a [MIT License](LICENSE).
